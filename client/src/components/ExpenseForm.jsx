@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import API from "../services/api";
+import "../styles/ExpenseForm.css";
 
 function ExpenseForm({
   refreshExpenses,
@@ -11,12 +12,12 @@ function ExpenseForm({
   const [category, setCategory] = useState("");
 
   useEffect(() => {
-    if (editingExpense) {
-      setTitle(editingExpense.title);
-      setAmount(editingExpense.amount);
-      setCategory(editingExpense.category);
-    }
-  }, [editingExpense]);
+  if (!editingExpense) return;
+
+  setTitle(() => editingExpense.title);
+  setAmount(() => editingExpense.amount);
+  setCategory(() => editingExpense.category);
+}, [editingExpense]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +55,7 @@ function ExpenseForm({
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>
         {editingExpense ? "Edit Expense" : "Add Expense"}
       </h2>

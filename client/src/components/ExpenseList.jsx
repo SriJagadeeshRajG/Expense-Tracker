@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import "../styles/ExpenseList.css";
 
 function ExpenseList({
   refresh,
@@ -41,28 +42,35 @@ function ExpenseList({
   }, [refresh]);
 
   return (
-    <div>
+    <div className="expense-list">
       <h2>All Expenses</h2>
 
       {expenses.map((expense) => (
-        <div key={expense._id}>
+        <div
+          key={expense._id}
+          className="expense-card"
+        >
           <p>Title: {expense.title}</p>
           <p>Amount: ₹{expense.amount}</p>
           <p>Category: {expense.category}</p>
 
           <button
-            onClick={() => deleteExpense(expense._id)}
+            className="delete-btn"
+            onClick={() =>
+              deleteExpense(expense._id)
+            }
           >
             Delete
           </button>
 
           <button
-            onClick={() => editExpense(expense)}
+            className="edit-btn"
+            onClick={() =>
+              editExpense(expense)
+            }
           >
             Edit
           </button>
-
-          <hr />
         </div>
       ))}
     </div>

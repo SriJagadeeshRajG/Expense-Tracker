@@ -2,6 +2,7 @@ import { useState } from "react";
 import ExpenseForm from "./components/ExpenseForm";
 import Summary from "./components/Summary";
 import ExpenseList from "./components/ExpenseList";
+import "./styles/App.css";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -12,7 +13,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div lassName="app-container">
       <h1>Expense Tracker</h1>
 
       <ExpenseForm
