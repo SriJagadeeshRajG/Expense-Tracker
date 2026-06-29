@@ -1,50 +1,179 @@
 import { useEffect, useState } from "react";
-import API from "../services/api";
+import API from "../services/expenseApi";
 import "../styles/Summary.css";
+import AnimatedNumber from "./AnimatedNumber";
+import { motion } from "framer-motion";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Summary({ refresh }) {
   const [total, setTotal] = useState(0);
   const [count, setCount] = useState(0);
   const [highest, setHighest] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchSummary = async () => {
-      try {
-        const totalRes = await API.get("/summary/total");
-        const countRes = await API.get("/summary/count");
-        const highestRes = await API.get("/summary/highest");
+  const fetchSummary = async () => {
+    try {
+      const totalRes = await API.get("/summary/total");
+      const countRes = await API.get("/summary/count");
+      const highestRes = await API.get("/summary/highest");
 
-        setTotal(totalRes.data.total);
-        setCount(countRes.data.count);
-        setHighest(highestRes.data.highest);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+      console.log("Total:", totalRes.data);
+      console.log("Count:", countRes.data);
+      console.log("Highest:", highestRes.data);
 
-    fetchSummary();
-  }, [refresh]);
+      setTotal(Number(totalRes.data.total));
+      setCount(Number(countRes.data.count));
+      setHighest(Number(highestRes.data.highest));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchSummary();
+}, [refresh]);
 
   return (
-    <div>
-      <h2>Dashboard Summary</h2>
+    <div className="summary-section">
+
+      <div className="summary-header">
+        <h2 className="summary-title">
+          Financial Summary
+        </h2>
+
+        <p>
+          Overview of your current spending
+        </p>
+      </div>
 
       <div className="summary-container">
-        <div className="summary-card">
-          <h2>Total Expenses</h2>
-          <p>₹{total}</p>
-        </div>
 
-        <div className="summary-card">
-          <h2>Total Records</h2>
-          <p>{count}</p>
-        </div>
+        {/* TOTAL */}
 
-        <div className="summary-card">
-          <h2>Highest Expense</h2>
-          <p>₹{highest}</p>
-        </div>
+        <motion.div
+          className="summary-card total-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+
+          <div className="summary-top">
+            <div className="summary-icon">💰</div>
+
+            <span className="summary-badge">
+              Total
+            </span>
+          </div>
+
+          <h3>Total Expenses</h3>
+
+          <h1>
+            {loading ? (
+              <Skeleton
+                width={150}
+                height={48}
+                baseColor="#374151"
+                highlightColor="#4b5563"
+              />
+            ) : (
+              <>
+                ₹ <AnimatedNumber value={total} />
+              </>
+            )}
+          </h1>
+
+          <small>
+            Money spent so far
+          </small>
+
+        </motion.div>
+
+        {/* RECORDS */}
+
+        <motion.div
+          className="summary-card records-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          viewport={{ once: true }}
+        >
+
+          <div className="summary-top">
+            <div className="summary-icon">📝</div>
+
+            <span className="summary-badge">
+              Records
+            </span>
+          </div>
+
+          <h3>Total Records</h3>
+
+          <h1>
+            {loading ? (
+              <Skeleton
+                width={120}
+                height={48}
+                baseColor="#374151"
+                highlightColor="#4b5563"
+              />
+            ) : (
+              <AnimatedNumber value={count} />
+            )}
+          </h1>
+
+          <small>
+            Expenses recorded
+          </small>
+
+        </motion.div>
+
+        {/* HIGHEST */}
+
+        <motion.div
+          className="summary-card highest-card"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+
+          <div className="summary-top">
+            <div className="summary-icon">🏆</div>
+
+            <span className="summary-badge">
+              Highest
+            </span>
+          </div>
+
+          <h3>Highest Expense</h3>
+
+          <h1>
+            {loading ? (
+              <Skeleton
+                width={150}
+                height={48}
+                baseColor="#374151"
+                highlightColor="#4b5563"
+              />
+            ) : (
+              <>
+                ₹ <AnimatedNumber value={highest} />
+              </>
+            )}
+          </h1>
+
+          <small>
+            Biggest single expense
+          </small>
+
+        </motion.div>
+
       </div>
+
     </div>
   );
 }

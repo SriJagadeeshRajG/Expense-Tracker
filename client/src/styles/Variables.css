@@ -1,0 +1,24 @@
+/* DARK THEME */
+
+.dark-theme{
+
+--bg-primary:#0f172a;
+--bg-secondary:#111827;
+
+--sidebar-bg:#111827;
+
+--card-bg:#1e293b;
+--card-hover:#273549;
+
+--text-primary:#ffffff;
+--text-secondary:#94a3b8;
+
+--border-color:rgba(255,255,255,.08);
+
+--input-bg:#374151;
+--input-border:#4b5563;
+
+}
+
+
+

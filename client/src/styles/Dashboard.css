@@ -1,0 +1,436 @@
+.sidebar{
+
+width:260px;
+
+min-height:100vh;
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+background:var(--sidebar-bg);
+
+padding:25px;
+
+border-right:1px solid var(--border-color);
+
+transition:.35s;
+
+}
+
+.sidebar h2{
+
+text-align:center;
+
+color:#38bdf8;
+
+margin-bottom:15px;
+
+}
+
+.sidebar::after{
+
+content:"Manage Your Expenses";
+
+display:block;
+
+text-align:center;
+
+margin-top:25px;
+
+color:var(--text-secondary);
+
+font-size:14px;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+
+padding:0;
+
+margin-top:20px;
+
+}
+
+.sidebar li{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:18px;
+
+margin-bottom:18px;
+
+background:var(--card-bg);
+
+border-radius:18px;
+
+cursor:pointer;
+
+color:var(--text-primary);
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.sidebar li:hover{
+
+transform:translateX(8px);
+
+background:var(--card-hover);
+
+}
+
+.active-menu{
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#2563eb
+)!important;
+
+color:white!important;
+
+box-shadow:0 10px 25px rgba(124,58,237,.35);
+
+}
+
+.user-profile{
+
+background:var(--card-bg);
+
+border:1px solid var(--border-color);
+
+padding:22px;
+
+border-radius:20px;
+
+text-align:center;
+
+margin-bottom:25px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+.user-avatar{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:38px;
+
+font-weight:bold;
+
+color:white;
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#2563eb
+);
+
+}
+
+.user-profile h3{
+
+margin-top:15px;
+
+color:var(--text-primary);
+
+}
+
+.user-profile p{
+
+margin-top:6px;
+
+color:var(--text-secondary);
+
+}
+
+/* ---------------- HERO ---------------- */
+
+.welcome-card{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:28px 40px;
+
+margin-bottom:25px;
+
+border-radius:28px;
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#2563eb
+);
+
+box-shadow:0 20px 45px rgba(37,99,235,.30);
+
+color:white;
+
+overflow:hidden;
+
+}
+
+.welcome-left{
+
+flex:1;
+
+padding-right:30px;
+
+}
+
+.welcome-left h1{
+
+font-size:42px;
+
+line-height:1.25;
+
+margin-bottom:12px;
+
+color:white;
+
+}
+
+.welcome-left span{
+
+color:#fde68a;
+
+}
+
+.welcome-left p{
+
+font-size:18px;
+
+line-height:1.6;
+
+color:rgba(255,255,255,.9);
+
+}
+
+.welcome-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.today-card{
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(18px);
+
+padding:22px 30px;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.25);
+
+text-align:center;
+
+min-width:260px;
+
+}
+
+.today-card h3{
+
+margin-bottom:12px;
+
+font-size:18px;
+
+color:white;
+
+}
+
+.today-card h2{
+
+font-size:22px;
+
+line-height:1.4;
+
+color:white;
+
+}
+
+/* ---------------- HOME LAYOUT ---------------- */
+
+.dashboard-row{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:25px;
+
+margin-top:25px;
+
+align-items:start;
+
+}
+
+.dashboard-row>*{
+
+border-radius:22px;
+
+overflow:hidden;
+
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:1100px){
+
+.welcome-card{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:25px;
+
+}
+
+.welcome-left{
+
+padding-right:0;
+
+}
+
+.dashboard-row{
+
+grid-template-columns:1fr;
+
+}
+
+}
+.dashboard-row{
+    display:flex;
+    gap:25px;
+    margin-top:25px;
+    align-items:flex-start;
+}
+
+.dashboard-row > *{
+    flex:1;
+}
+.dashboard-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+/* ===========================
+   Analytics Hero
+=========================== */
+
+.analytics-hero{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:35px 40px;
+
+margin-bottom:35px;
+
+border-radius:28px;
+
+background:linear-gradient(
+135deg,
+#7c3aed,
+#2563eb
+);
+
+box-shadow:
+0 20px 45px rgba(37,99,235,.30);
+
+color:white;
+
+overflow:hidden;
+
+}
+
+.analytics-left{
+
+max-width:70%;
+
+}
+
+.analytics-left h1{
+
+font-size:42px;
+
+margin-bottom:15px;
+
+color:white;
+
+}
+
+.analytics-left p{
+
+font-size:18px;
+
+line-height:1.7;
+
+opacity:.9;
+
+}
+
+.analytics-right{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.analytics-date{
+
+padding:18px 28px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+font-size:20px;
+
+font-weight:700;
+
+border:1px solid rgba(255,255,255,.2);
+
+}

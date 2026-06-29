@@ -1,35 +1,67 @@
-import { useState } from "react";
-import ExpenseForm from "./components/ExpenseForm";
-import Summary from "./components/Summary";
-import ExpenseList from "./components/ExpenseList";
-import "./styles/App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
-  const [refresh, setRefresh] = useState(false);
-  const [editingExpense, setEditingExpense] = useState(null);
-
-  const refreshExpenses = () => {
-    setRefresh((prev) => !prev);
-  };
+  const token = localStorage.getItem("token");
 
   return (
-    <div lassName="app-container">
-      <h1>Expense Tracker</h1>
+    <BrowserRouter>
 
-      <ExpenseForm
-        refreshExpenses={refreshExpenses}
-        editingExpense={editingExpense}
-        setEditingExpense={setEditingExpense}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#1e293b",
+            color: "#fff",
+            border: "1px solid #334155",
+          },
+        }}
       />
 
-      <Summary refresh={refresh} />
+      <Routes>
 
-      <ExpenseList
-        refresh={refresh}
-        refreshExpenses={refreshExpenses}
-        setEditingExpense={setEditingExpense}
-      />
-    </div>
+        <Route
+          path="/"
+          element={
+            token
+              ? <Navigate to="/dashboard" />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/register"
+          element={<Register />}
+        />
+
+        <Route
+          path="/dashboard"
+          element={
+            token
+              ? <Dashboard />
+              : <Navigate to="/" />
+          }
+        />
+
+        <Route
+          path="/forgot-password"
+          element={<ForgotPassword />}
+        />
+
+        <Route
+          path="/reset-password/:token"
+          element={<ResetPassword />}
+        />
+
+      </Routes>
+
+    </BrowserRouter>
   );
 }
 

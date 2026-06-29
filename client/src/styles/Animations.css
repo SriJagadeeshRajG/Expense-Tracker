@@ -1,0 +1,57 @@
+*{
+
+transition:
+
+background .35s,
+
+color .35s,
+
+border .35s,
+
+box-shadow .35s,
+
+transform .25s;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.summary-card,
+.chart-card,
+.settings-card,
+.user-profile,
+.welcome-card{
+
+animation:fadeUp .6s ease;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+}
+
+button:active{
+
+transform:scale(.97);
+
+}

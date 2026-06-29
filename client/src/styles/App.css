@@ -1,19 +1,102 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+@import "./Variables.css";
+@import "./Dashboard.css";
+@import "./Charts.css";
+@import "./Settings.css";
+@import "./Responsive.css";
+@import "./Animations.css";
 
-  background: #0f172a;
-  color: white;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.app-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+body{
+
+    font-family:"Segoe UI",sans-serif;
+
+    background:
+    linear-gradient(
+    180deg,
+    var(--bg-primary),
+    var(--bg-secondary)
+    );
+
+    color:var(--text-primary);
+
+    transition:
+    background 0.35s ease,
+    color 0.35s ease;
+
+    min-height:100vh;
+
+    background-attachment:fixed;
+
 }
 
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  margin-bottom: 30px;
+.app-layout{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+.main-content{
+
+    margin-left:280px;
+
+    width:calc(100% - 280px);
+
+    padding:35px;
+
+}
+
+h1{
+
+    color:var(--text-primary);
+
+}
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#4f46e5;
+
+    border-radius:20px;
+
+}
+.bar-chart-card{
+
+height:480px;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.bar-chart-card canvas{
+
+flex:1;
+
+}
+.trend-chart-card{
+
+height:480px;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.trend-chart-card canvas{
+
+flex:1;
+
 }
