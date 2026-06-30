@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const budgetAPI = axios.create({
-  baseURL: "http://localhost:5000/api/budget",
+  baseURL: `${import.meta.env.VITE_API_URL}/budget`,
 });
 
 budgetAPI.interceptors.request.use(
