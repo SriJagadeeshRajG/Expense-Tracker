@@ -105,6 +105,10 @@ router.post("/login", async (req, res) => {
 /* FORGOT PASSWORD */
 
 router.post("/forgot-password", async (req, res) => {
+
+  console.log("=== Forgot Password Route Hit ===");
+  console.log(req.body);
+
   try {
     const { email } = req.body;
 
