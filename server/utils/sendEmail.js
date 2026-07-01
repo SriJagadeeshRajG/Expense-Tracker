@@ -1,42 +1,20 @@
-const nodemailer = require("nodemailer");
-const dns = require("dns");
+const { Resend } = require("resend");
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-
-  family: 4, // Force IPv4
-
-  tls: {
-    rejectUnauthorized: false,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async (to, subject, html) => {
   try {
-    console.log("Sending email...");
-
-    dns.lookup("smtp.gmail.com", { family: 4 }, (err, address) => {
-      console.log("Resolved IPv4:", address);
-    });
-
-    const info = await transporter.sendMail({
-      from: `"Expense Tracker" <${process.env.EMAIL_USER}>`,
-      to,
+    const data = await resend.emails.send({
+      from: "Expense Tracker <onboarding@resend.dev>",
+      to: [to],
       subject,
       html,
     });
 
-    console.log("Email sent:", info.messageId);
-  } catch (err) {
-    console.error(err);
-    throw err;
+    console.log("Email sent successfully:", data);
+  } catch (error) {
+    console.error("Resend Error:", error);
+    throw error;
   }
 };
 
