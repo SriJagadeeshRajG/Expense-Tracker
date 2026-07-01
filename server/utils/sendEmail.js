@@ -1,7 +1,11 @@
 const brevo = require("@getbrevo/brevo");
 
+console.log(
+  "API KEY:",
+  process.env.BREVO_API_KEY?.substring(0, 15)
+);
+
 const apiInstance = new brevo.TransactionalEmailsApi();
-console.log("API KEY:", process.env.BREVO_API_KEY?.substring(0, 15));
 
 apiInstance.setApiKey(
   brevo.TransactionalEmailsApiApiKeys.apiKey,
@@ -14,7 +18,7 @@ const sendEmail = async (to, subject, html) => {
 
     sendSmtpEmail.sender = {
       name: "Expense Tracker",
-      email: "jagadeesh200510@gmail.com", // Your verified sender
+      email: "jagadeesh200510@gmail.com",
     };
 
     sendSmtpEmail.to = [
@@ -26,13 +30,30 @@ const sendEmail = async (to, subject, html) => {
     sendSmtpEmail.subject = subject;
     sendSmtpEmail.htmlContent = html;
 
-    const response = await apiInstance.sendTransacEmail(sendSmtpEmail);
+    const response = await apiInstance.sendTransacEmail(
+      sendSmtpEmail
+    );
 
-    console.log("Email sent successfully!");
+    console.log("✅ Email sent successfully!");
     console.log(response);
+
+    return response;
   } catch (error) {
-    console.error("Brevo Error:");
+    console.error("========== BREVO ERROR ==========");
+
+    console.error("Status Code:");
+    console.error(error.response?.status);
+
+    console.error("Response Data:");
+    console.error(
+      JSON.stringify(error.response?.data, null, 2)
+    );
+
+    console.error("Full Error:");
     console.error(error);
+
+    console.error("================================");
+
     throw error;
   }
 };
