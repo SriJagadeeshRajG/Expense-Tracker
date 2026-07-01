@@ -1,21 +1,24 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // Must be false for port 587
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
+
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 const sendEmail = async (to, subject, html) => {
   try {
-    console.log("Sending email...");
+    console.log("Verifying transporter...");
+
+    await transporter.verify();
+
+    console.log("Transport verified");
 
     const info = await transporter.sendMail({
       from: `"Expense Tracker" <${process.env.EMAIL_USER}>`,
@@ -26,7 +29,8 @@ const sendEmail = async (to, subject, html) => {
 
     console.log("Email sent:", info.messageId);
   } catch (err) {
-    console.error("Email Error:", err);
+    console.error("FULL EMAIL ERROR:");
+    console.error(err);
     throw err;
   }
 };
