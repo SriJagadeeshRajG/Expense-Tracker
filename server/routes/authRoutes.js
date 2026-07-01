@@ -105,14 +105,16 @@ router.post("/login", async (req, res) => {
 /* FORGOT PASSWORD */
 
 router.post("/forgot-password", async (req, res) => {
-
   console.log("=== Forgot Password Route Hit ===");
-  console.log(req.body);
 
   try {
+    console.log("Inside try block");
+
     const { email } = req.body;
 
-    const user = await User.findOne({ email });
+    console.log("Email:", email);
+
+    // rest of your code...
 
     // Don't reveal whether the email exists
     if (!user) {
