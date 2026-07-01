@@ -135,60 +135,17 @@ router.post("/forgot-password", async (req, res) => {
     const resetLink =
   `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
 
+console.log("Before user.save()");
+await user.save();
+console.log("After user.save()");
+
 await sendEmail(
   user.email,
   "Reset your Expense Tracker Password",
-  `
-  <div style="
-      font-family:Arial;
-      max-width:600px;
-      margin:auto;
-      padding:30px;
-      background:#111827;
-      color:white;
-      border-radius:20px;
-  ">
-
-      <h1 style="color:#60a5fa;">
-          Expense Tracker
-      </h1>
-
-      <p>
-          We received a request to reset your password.
-      </p>
-
-      <p>
-          Click the button below to create a new password.
-      </p>
-
-      <a
-      href="${resetLink}"
-      style="
-      display:inline-block;
-      margin-top:20px;
-      background:#2563eb;
-      color:white;
-      text-decoration:none;
-      padding:14px 24px;
-      border-radius:12px;
-      font-weight:bold;
-      ">
-      Reset Password
-      </a>
-
-      <p style="margin-top:35px;color:#9ca3af;">
-          This link expires in 15 minutes.
-      </p>
-
-      <hr>
-
-      <small style="color:#6b7280;">
-          If you didn't request this, you can safely ignore this email.
-      </small>
-
-  </div>
-  `
+  html
 );
+
+console.log("After sendEmail");
 
     res.json({
   message: "Password reset email sent successfully.",
