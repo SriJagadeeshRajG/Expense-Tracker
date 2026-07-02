@@ -19,7 +19,7 @@ function Footer() {
       </div>
 
       <p className="copyright">
-        © 2026 Jagadeesh G • All Rights Reserved
+        © 2026 Sri Jagadeesh Raj G • All Rights Reserved
       </p>
 
     </footer>

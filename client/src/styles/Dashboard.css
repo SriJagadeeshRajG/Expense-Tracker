@@ -208,7 +208,7 @@ padding-right:30px;
 
 .welcome-left h1{
 
-font-size:42px;
+font-size:clamp(30px,5vw,42px);
 
 line-height:1.25;
 
@@ -333,21 +333,8 @@ grid-template-columns:1fr;
 }
 
 }
-.dashboard-row{
-    display:flex;
-    gap:25px;
-    margin-top:25px;
-    align-items:flex-start;
-}
 
-.dashboard-row > *{
-    flex:1;
-}
-.dashboard-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
+
 /* ===========================
    Analytics Hero
 =========================== */
@@ -389,7 +376,7 @@ max-width:70%;
 
 .analytics-left h1{
 
-font-size:42px;
+font-size:clamp(30px,5vw,42px);
 
 margin-bottom:15px;
 

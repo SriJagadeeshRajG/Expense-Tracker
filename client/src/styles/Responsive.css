@@ -8,35 +8,7 @@ grid-template-columns:1fr;
 
 }
 
-@media(max-width:900px){
 
-.sidebar{
-
-width:90px;
-
-padding:15px;
-
-}
-
-.main-content{
-
-margin-left:90px;
-
-width:calc(100% - 90px);
-
-}
-
-.sidebar h2,
-
-.user-profile h3,
-
-.user-profile p{
-
-display:none;
-
-}
-
-}
 
 @media(max-width:700px){
 

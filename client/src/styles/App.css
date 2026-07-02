@@ -100,137 +100,75 @@ flex-direction:column;
 flex:1;
 
 }
-/* ==========================
-   MOBILE RESPONSIVE
-========================== */
-
-@media (max-width: 900px) {
-
-  .sidebar {
-
-    position: relative;
-    width: 100%;
-    min-height: auto;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-
-  }
-
-  .main-content {
-
-    margin-left: 0;
-    padding: 20px;
-
-  }
-
-}
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width:768px){
 
-.welcome-card{
-
-flex-direction:column;
-
-text-align:center;
-
-padding:25px;
-
+.app-layout{
+    flex-direction:column;
 }
 
-.welcome-left{
-
-padding-right:0;
-
+.sidebar{
+    position:relative;
+    width:100%;
+    min-height:auto;
+    padding:20px;
+    border-right:none;
+    border-bottom:1px solid var(--border-color);
 }
 
-.welcome-left h1{
-
-font-size:30px;
-
-}
-
-.today-card{
-
-width:100%;
-
-min-width:100%;
-
-}
-
-.dashboard-row{
-
-grid-template-columns:1fr;
-
-gap:20px;
-
-}
-
-.analytics-hero{
-
-flex-direction:column;
-
-text-align:center;
-
-gap:25px;
-
-padding:25px;
-
-}
-
-.analytics-left{
-
-max-width:100%;
-
-}
-
-.analytics-left h1{
-
-font-size:32px;
-
-}
-
-.analytics-date{
-
-width:100%;
-
+.main-content{
+    width:100%;
+    margin-left:0;
+    padding:15px;
 }
 
 .sidebar ul{
-
-display:flex;
-
-overflow-x:auto;
-
-gap:12px;
-
-padding-bottom:10px;
-
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding-bottom:10px;
 }
 
 .sidebar li{
-
-min-width:150px;
-
-margin-bottom:0;
-
-flex-shrink:0;
-
+    min-width:150px;
+    flex-shrink:0;
+    margin-bottom:0;
 }
 
 .user-profile{
-
-padding:18px;
-
+    margin-bottom:20px;
 }
 
-.user-avatar{
+.dashboard-row{
+    grid-template-columns:1fr;
+}
 
-width:70px;
+.welcome-card,
+.analytics-hero{
+    flex-direction:column;
+    text-align:center;
+    gap:20px;
+    padding:20px;
+}
 
-height:70px;
+.welcome-left,
+.analytics-left{
+    max-width:100%;
+    padding-right:0;
+}
 
-font-size:28px;
+.today-card,
+.analytics-date{
+    width:100%;
+    min-width:100%;
+}
 
+.welcome-left h1,
+.analytics-left h1{
+    font-size:30px;
 }
 
 }
