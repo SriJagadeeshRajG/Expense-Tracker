@@ -14,7 +14,7 @@ align-items:center;
 
 backdrop-filter:blur(5px);
 
-z-index:999;
+z-index:99999;
 
 }
 
@@ -148,4 +148,24 @@ transform:scale(1);
 
 }
 
+}
+.delete-modal{
+    position: relative;
+    z-index: 100000;
+
+    background: var(--card-bg);
+
+    padding:35px;
+
+    border-radius:25px;
+
+    width:420px;
+
+    text-align:center;
+
+    border:1px solid var(--border-color);
+
+    outline:none;
+
+    animation:popup .25s ease;
 }

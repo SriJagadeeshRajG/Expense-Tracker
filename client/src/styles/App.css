@@ -100,3 +100,137 @@ flex-direction:column;
 flex:1;
 
 }
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+
+  }
+
+  .main-content {
+
+    margin-left: 0;
+    padding: 20px;
+
+  }
+
+}
+
+@media (max-width:768px){
+
+.welcome-card{
+
+flex-direction:column;
+
+text-align:center;
+
+padding:25px;
+
+}
+
+.welcome-left{
+
+padding-right:0;
+
+}
+
+.welcome-left h1{
+
+font-size:30px;
+
+}
+
+.today-card{
+
+width:100%;
+
+min-width:100%;
+
+}
+
+.dashboard-row{
+
+grid-template-columns:1fr;
+
+gap:20px;
+
+}
+
+.analytics-hero{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:25px;
+
+padding:25px;
+
+}
+
+.analytics-left{
+
+max-width:100%;
+
+}
+
+.analytics-left h1{
+
+font-size:32px;
+
+}
+
+.analytics-date{
+
+width:100%;
+
+}
+
+.sidebar ul{
+
+display:flex;
+
+overflow-x:auto;
+
+gap:12px;
+
+padding-bottom:10px;
+
+}
+
+.sidebar li{
+
+min-width:150px;
+
+margin-bottom:0;
+
+flex-shrink:0;
+
+}
+
+.user-profile{
+
+padding:18px;
+
+}
+
+.user-avatar{
+
+width:70px;
+
+height:70px;
+
+font-size:28px;
+
+}
+
+}

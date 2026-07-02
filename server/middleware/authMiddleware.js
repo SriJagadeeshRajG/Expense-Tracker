@@ -25,7 +25,7 @@ module.exports = function (
       decoded
     );
 
-    req.user = decoded.id;
+    req.user = decoded;
 
     next();
 

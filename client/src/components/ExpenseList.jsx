@@ -64,22 +64,25 @@ function ExpenseList({
   
 
   const deleteExpense = async () => {
-    try {
-      await API.delete(`/${selectedExpense._id}`);
+  try {
+    await API.delete(`/${selectedExpense._id}`);
 
-      toast.success("Expense Deleted");
+    setShowDeleteModal(false);
+    setSelectedExpense(null);
 
-      refreshExpenses();
-      fetchExpenses();
+    refreshExpenses();
+    fetchExpenses();
 
-      setShowDeleteModal(false);
-      setSelectedExpense(null);
+    setTimeout(() => {
+      toast.success("Expense Deleted Successfully 🗑️");
+    }, 200);
 
-    } catch (error) {
-      console.error(error);
-      toast.error("Delete Failed");
-    }
-  };
+  } catch (error) {
+    console.error(error);
+
+    toast.error("Delete Failed ❌");
+  }
+};
 
   const openDeleteModal = (expense) => {
     setSelectedExpense(expense);
@@ -417,9 +420,22 @@ const totalPages = Math.ceil(
             {filteredExpenses.length === 0 ? (
 
         <div className="no-expenses">
-          <h3>📂 No Expenses Found</h3>
-          <p>Try changing your search or filters.</p>
-        </div>
+
+    <div className="empty-icon">
+        📂
+    </div>
+
+    <h2>No Expenses Found</h2>
+
+    <p>
+        We couldn't find any matching expenses.
+    </p>
+
+    <small>
+        Try changing your filters or add a new expense.
+    </small>
+
+</div>
 
       ) : (
 

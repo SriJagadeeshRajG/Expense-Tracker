@@ -15,6 +15,7 @@ import MonthlyComparison from "../components/MonthlyComparison";
 import { updateUsername } from "../services/authApi";
 import "../styles/Settings.css";
 import ChangePasswordModal from "../components/ChangePasswordModal";
+import Footer from "../components/Footer";
 
 import {
   FaHome,
@@ -519,6 +520,7 @@ useEffect(() => {
 )}
 
       </div>
+      <Footer />
       <ChangePasswordModal
   open={showPasswordModal}
   onClose={() =>
