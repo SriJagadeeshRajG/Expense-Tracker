@@ -81,7 +81,17 @@ function ExpenseForm({
       ...provided,
       backgroundColor: "#2d3748",
       borderRadius: "12px",
+      zIndex: 999999,
     }),
+    menuPortal: (provided) => ({
+  ...provided,
+  zIndex: 999999,
+}),
+
+menuList: (provided) => ({
+  ...provided,
+  maxHeight: 240,
+}),
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "#2563eb" : "#2d3748",
@@ -175,12 +185,16 @@ function ExpenseForm({
           <label>🏷 Category</label>
 
           <Select
-            options={categoryOptions}
-            placeholder="Select Category"
-            value={categoryOptions.find((o) => o.value === category) || null}
-            onChange={(selected) => setCategory(selected.value)}
-            styles={customSelectStyles}
-          />
+  options={categoryOptions}
+  placeholder="Select Category"
+  value={categoryOptions.find((o) => o.value === category) || null}
+  onChange={(selected) => setCategory(selected.value)}
+  styles={customSelectStyles}
+  isSearchable={false}
+  menuPortalTarget={document.body}
+  menuPosition="fixed"
+  menuPlacement="auto"
+/>
 
           {category === "Other" && (
             <input
