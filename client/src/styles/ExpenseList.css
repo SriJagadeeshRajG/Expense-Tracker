@@ -369,9 +369,9 @@ transform:scale(.97);
 .filters-row{
     display:flex;
     gap:15px;
-    margin-top:20px;
-    margin-bottom:18px;
+    margin:0;
     flex-wrap:wrap;
+    align-items:center;
 }
 .filter-select {
     width: 220px;
@@ -526,10 +526,12 @@ box-shadow:0 8px 20px rgba(37,99,235,.35);
   z-index: 1;
 }
 
-.filters-container {
-  position: relative;
-  z-index: 1;
-  overflow: visible;
+.filters-container{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    overflow:visible;
 }
 .react-select__menu-portal{
     z-index:999999 !important;

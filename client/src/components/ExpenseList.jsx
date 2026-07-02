@@ -365,7 +365,7 @@ const totalPages = Math.ceil(
     styles={customSelectStyles}
     isSearchable={false}
     menuPortalTarget={document.body}
-    menuPosition="fixed"
+    menuPosition="absolute"
   />
 
   <Select
@@ -379,7 +379,7 @@ const totalPages = Math.ceil(
     styles={customSelectStyles}
     isSearchable={false}
     menuPortalTarget={document.body}
-    menuPosition="fixed"
+    menuPosition="absolute"
   />
 
   <Select
@@ -393,7 +393,7 @@ const totalPages = Math.ceil(
     styles={customSelectStyles}
     isSearchable={false}
     menuPortalTarget={document.body}
-    menuPosition="fixed"
+    menuPosition="absolute"
   />
 
 </div>
