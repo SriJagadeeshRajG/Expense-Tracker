@@ -14,7 +14,7 @@ router.get(
     try {
       const expenses =
         await Expense.find({
-          user: req.user
+          user: req.user.id
         });
 
       res.json(expenses);
@@ -71,7 +71,7 @@ router.post(
       console.log("Request Body:", req.body);
 
       const expense = await Expense.create({
-        user: req.user,
+        user: req.user.id,
         title: req.body.title,
         amount: Number(req.body.amount),
         category: formatCategory(req.body.category),
@@ -105,7 +105,7 @@ router.delete(
     try {
       await Expense.findOneAndDelete({
         _id: req.params.id,
-        user: req.user
+        user: req.user.id
       });
 
       res.json({
@@ -159,7 +159,7 @@ router.get(
     try {
       const expenses =
         await Expense.find({
-          user: req.user
+          user: req.user.id
         });
 
       const total =
@@ -188,7 +188,7 @@ router.get(
     try {
       const expenses =
         await Expense.find({
-          user: req.user
+          user: req.user.id
         });
 
       const categories = {};
@@ -230,7 +230,7 @@ router.get(
     try {
       const highestExpense =
         await Expense.findOne({
-          user: req.user
+          user: req.user.id
         }).sort({
           amount: -1
         });
@@ -264,7 +264,7 @@ router.get(
       const count =
         await Expense.countDocuments(
           {
-            user: req.user
+            user: req.user.id
           }
         );
 
@@ -287,7 +287,7 @@ router.get(
     try {
       const expenses =
         await Expense.find({
-          user: req.user
+          user: req.user.id
         })
           .sort({
             date: -1
