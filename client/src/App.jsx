@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -7,49 +6,60 @@ import Dashboard from "./pages/Dashboard";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 
+import Footer from "./components/Footer";
+
 function App() {
   const token = localStorage.getItem("token");
 
   return (
     <BrowserRouter>
 
+      <div className="app-container">
 
-      <Routes>
+        <div className="page-content">
 
-        <Route
-          path="/"
-          element={
-            token
-              ? <Navigate to="/dashboard" />
-              : <Login />
-          }
-        />
+          <Routes>
 
-        <Route
-          path="/register"
-          element={<Register />}
-        />
+            <Route
+              path="/"
+              element={
+                token
+                  ? <Navigate to="/dashboard" />
+                  : <Login />
+              }
+            />
 
-        <Route
-          path="/dashboard"
-          element={
-            token
-              ? <Dashboard />
-              : <Navigate to="/" />
-          }
-        />
+            <Route
+              path="/register"
+              element={<Register />}
+            />
 
-        <Route
-          path="/forgot-password"
-          element={<ForgotPassword />}
-        />
+            <Route
+              path="/dashboard"
+              element={
+                token
+                  ? <Dashboard />
+                  : <Navigate to="/" />
+              }
+            />
 
-        <Route
-          path="/reset-password/:token"
-          element={<ResetPassword />}
-        />
+            <Route
+              path="/forgot-password"
+              element={<ForgotPassword />}
+            />
 
-      </Routes>
+            <Route
+              path="/reset-password/:token"
+              element={<ResetPassword />}
+            />
+
+          </Routes>
+
+        </div>
+
+        <Footer />
+
+      </div>
 
     </BrowserRouter>
   );
