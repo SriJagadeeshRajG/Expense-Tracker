@@ -528,5 +528,13 @@ box-shadow:0 8px 20px rgba(37,99,235,.35);
 
 .filters-container {
   position: relative;
-  z-index: 1000;
+  z-index: 1;
+  overflow: visible;
+}
+.react-select__menu-portal{
+    z-index:999999 !important;
+}
+
+.react-select__menu{
+    z-index:999999 !important;
 }

@@ -137,11 +137,11 @@ function ExpenseList({
   borderRadius: "14px",
   minWidth: "220px",
   width: "max-content",
-  zIndex: 9999,
+  zIndex: 999999,
 }),
      menuPortal: (base) => ({
   ...base,
-  zIndex: 9999,
+  zIndex: 999999,
 }),
 
 container: (base) => ({
