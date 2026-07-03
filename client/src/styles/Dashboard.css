@@ -713,7 +713,7 @@ margin:25px;
 
     margin-top:auto;
 
-    padding-top:20px;
+    padding-top:24px;
 
     border-top:1px solid rgba(255,255,255,.08);
 
@@ -725,28 +725,30 @@ margin:25px;
 
     align-items:center;
 
-    gap:15px;
+    gap:16px;
 
-    padding:18px 22px;
+    padding:18px 20px;
 
-    border-radius:18px;
+    border-radius:16px;
 
     cursor:pointer;
+
+    color:#f87171;
 
     font-size:18px;
 
     font-weight:600;
 
-    color:white;
-
-    transition:.35s;
+    transition:.3s;
 
 }
 
 .logout-btn:hover{
 
-    background:#ef4444;
+    background:rgba(239,68,68,.18);
 
-    transform:translateX(6px);
+    color:#ffffff;
+
+    transform:translateX(8px);
 
 }
