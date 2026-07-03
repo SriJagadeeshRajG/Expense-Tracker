@@ -214,7 +214,9 @@ useEffect(() => {
 
 </div>
 
-      <div className="main-content">
+</div>   {/* <-- Close Sidebar Here */}
+
+<div className="main-content">
 
         {/* HOME */}
 
