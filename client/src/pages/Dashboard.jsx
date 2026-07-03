@@ -220,6 +220,16 @@ useEffect(() => {
           </li>
 
           <li
+  className="logout-btn"
+  onClick={() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    window.location.href = "/";
+  }}
+>
+  <FaSignOutAlt />
+  <span>Logout</span>
+</li><li
             onClick={() => {
               localStorage.removeItem(
                 "token"
