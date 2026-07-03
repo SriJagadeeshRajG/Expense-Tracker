@@ -2,21 +2,25 @@
 
 .dark-theme{
 
---bg-primary:#0f172a;
+--bg-primary:#0F172A;
 --bg-secondary:#111827;
+
+--card-bg:#1E293B;
+--card-hover:#273449;
 
 --sidebar-bg:#111827;
 
---card-bg:#1e293b;
---card-hover:#273549;
+--border-color:#334155;
 
---text-primary:#ffffff;
---text-secondary:#94a3b8;
+--text-primary:#F8FAFC;
+--text-secondary:#94A3B8;
 
---border-color:rgba(255,255,255,.08);
+--primary:#6366F1;
+--secondary:#06B6D4;
 
---input-bg:#374151;
---input-border:#4b5563;
+--success:#22C55E;
+--warning:#F59E0B;
+--danger:#EF4444;
 
 }
 

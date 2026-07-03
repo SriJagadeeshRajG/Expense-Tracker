@@ -1,200 +1,282 @@
-/* ===========================
-   Settings Page
-=========================== */
+/* ===============================
+   SUMMARY SECTION
+================================= */
 
-.settings-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-    margin-top:35px;
+.summary-section{
+    margin-top:40px;
 }
 
-.settings-box{
-    background:var(--card-bg);
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:22px;
-    padding:28px;
-    box-shadow:0 15px 35px rgba(0,0,0,.18);
-    transition:.35s;
+.summary-header{
+    margin-bottom:30px;
 }
 
-.settings-box:hover{
-    transform:translateY(-6px);
-    box-shadow:0 20px 45px rgba(0,0,0,.28);
-}
-
-.settings-box h2{
-    margin-bottom:25px;
+.summary-title{
+    font-size:34px;
+    font-weight:700;
     color:var(--text-primary);
+    margin-bottom:8px;
+}
+
+.summary-header p{
+    color:var(--text-secondary);
+    font-size:16px;
+}
+
+/* ===============================
+   SUMMARY GRID
+================================= */
+
+.summary-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+}
+
+/* ===============================
+   SUMMARY CARD
+================================= */
+
+.summary-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:rgba(30,41,59,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    transition:.35s ease;
+
+    box-shadow:
+    0 12px 40px rgba(15,23,42,.25);
+
+}
+
+.summary-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 22px 55px rgba(15,23,42,.35);
+
+}
+
+/* ===============================
+   TOP ROW
+================================= */
+
+.summary-top{
+
     display:flex;
+
+    justify-content:space-between;
+
     align-items:center;
-    gap:10px;
+
+    margin-bottom:25px;
+
 }
 
-/* ===========================
-Profile
-=========================== */
+.summary-icon{
 
-.profile-card{
-    text-align:center;
-}
+    width:65px;
 
-.profile-avatar{
+    height:65px;
 
-    width:95px;
-    height:95px;
-
-    margin:auto;
-    margin-bottom:18px;
-
-    border-radius:50%;
+    border-radius:18px;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    font-size:38px;
-    font-weight:bold;
+    font-size:28px;
 
     color:white;
+
+}
+
+/* Different Icon Colors */
+
+.total-card .summary-icon{
 
     background:linear-gradient(
     135deg,
-    #7c3aed,
+    #22c55e,
+    #16a34a
+    );
+
+}
+
+.records-card .summary-icon{
+
+    background:linear-gradient(
+    135deg,
+    #3b82f6,
     #2563eb
     );
 
-    box-shadow:
-    0 15px 30px rgba(59,130,246,.3);
+}
+
+.highest-card .summary-icon{
+
+    background:linear-gradient(
+    135deg,
+    #f59e0b,
+    #ea580c
+    );
 
 }
 
-.profile-name{
+/* ===============================
+   BADGE
+================================= */
 
-    font-size:28px;
-    font-weight:700;
-    color:white;
+.summary-badge{
 
-}
+    padding:8px 16px;
 
-.profile-email{
+    border-radius:999px;
 
-    color:#94a3b8;
-    margin-top:10px;
-
-}
-
-.profile-role{
-
-    display:inline-block;
-    margin-top:18px;
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    background:#2563eb22;
-
-    color:#60a5fa;
+    font-size:13px;
 
     font-weight:600;
 
+    background:rgba(255,255,255,.08);
+
+    color:#cbd5e1;
+
 }
 
-/* ===========================
-Inputs
-=========================== */
+/* ===============================
+   TEXT
+================================= */
 
-.settings-input{
+.summary-card h3{
 
-    width:100%;
+    font-size:18px;
 
-    padding:15px 18px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:#273244;
-
-    color:white;
+    color:var(--text-secondary);
 
     margin-bottom:18px;
 
-    font-size:16px;
+    font-weight:500;
 
 }
 
-.settings-input:focus{
+.summary-card h1{
 
-outline:none;
+    font-size:42px;
 
-box-shadow:0 0 0 3px rgba(59,130,246,.2);
+    font-weight:800;
 
-}
+    color:white;
 
-/* ===========================
-Button
-=========================== */
+    margin-bottom:10px;
 
-.settings-btn{
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:14px;
-
-font-size:17px;
-
-font-weight:700;
-
-cursor:pointer;
-
-background:linear-gradient(
-135deg,
-#2563eb,
-#38bdf8
-);
-
-color:white;
-
-transition:.3s;
+    letter-spacing:-1px;
 
 }
 
-.settings-btn:hover{
+.summary-card small{
 
-transform:translateY(-3px);
+    color:#94a3b8;
 
-box-shadow:
-0 15px 35px rgba(37,99,235,.35);
-
-}
-
-/* ===========================
-About
-=========================== */
-
-.about-text{
-
-color:#94a3b8;
-
-line-height:1.8;
+    font-size:15px;
 
 }
 
-/* ===========================
-Responsive
-=========================== */
+/* ===============================
+   Accent Line
+================================= */
 
-@media(max-width:950px){
+.summary-card::after{
 
-.settings-grid{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:4px;
+
+}
+
+/* Different Accent Colors */
+
+.total-card::after{
+
+    background:linear-gradient(
+    90deg,
+    #22c55e,
+    #16a34a
+    );
+
+}
+
+.records-card::after{
+
+    background:linear-gradient(
+    90deg,
+    #3b82f6,
+    #2563eb
+    );
+
+}
+
+.highest-card::after{
+
+    background:linear-gradient(
+    90deg,
+    #f59e0b,
+    #ea580c
+    );
+
+}
+
+/* ===============================
+   Responsive
+================================= */
+
+@media(max-width:900px){
+
+.summary-container{
 
 grid-template-columns:1fr;
+
+}
+
+.summary-card{
+
+padding:24px;
+
+}
+
+.summary-card h1{
+
+font-size:34px;
+
+}
+
+.summary-title{
+
+font-size:28px;
 
 }
 

@@ -15,6 +15,7 @@ import MonthlyComparison from "../components/MonthlyComparison";
 import { updateUsername } from "../services/authApi";
 import "../styles/Settings.css";
 import ChangePasswordModal from "../components/ChangePasswordModal";
+import budgetAPI from "../services/budgetApi";
 
 
 import {
@@ -48,6 +49,7 @@ function Dashboard() {
 
   const [loadingName, setLoadingName] =
     useState(false);
+  const [budget, setBudget] = useState(5000);
   const [showPasswordModal, setShowPasswordModal] =
   useState(false);
 
@@ -90,8 +92,28 @@ else {
 }
 
 useEffect(() => {
+
   document.body.className = "dark-theme";
-}, []);
+
+  const fetchBudget = async () => {
+
+    try{
+
+      const res = await budgetAPI.get("/");
+
+      setBudget(res.data.amount);
+
+    }catch(err){
+
+      console.log(err);
+
+    }
+
+  };
+
+  fetchBudget();
+
+},[]);
 
   const refreshExpenses = () => {
     setRefresh((prev) => !prev);
@@ -236,25 +258,44 @@ useEffect(() => {
 
       <div className="welcome-right">
 
-        <div className="today-card">
+  <div className="today-card">
 
-          <h3>📅 Today</h3>
+    <h3>💰 Monthly Budget</h3>
 
-          <h2>
-            {new Date().toLocaleDateString(
-              "en-GB",
-              {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              }
-            )}
-          </h2>
+    <h1>₹{budget}</h1>
 
-        </div>
+    <hr />
 
-      </div>
+    <h3 style={{marginTop:"18px"}}>
+
+      📅 Today
+
+    </h3>
+
+    <p>
+
+      {new Date().toLocaleDateString(
+        "en-GB",
+        {
+          weekday:"long",
+          day:"numeric",
+          month:"long",
+          year:"numeric"
+        }
+      )}
+
+    </p>
+
+    <div className="hero-note">
+
+      Track every expense.
+      Stay within budget.
+
+    </div>
+
+  </div>
+
+</div>
 
     </motion.div>
 
