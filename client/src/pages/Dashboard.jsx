@@ -163,75 +163,56 @@ useEffect(() => {
         </div>
 
         <ul>
-          <li
-            className={
-              activePage === "home"
-                ? "active-menu"
-                : ""
-            }
-            onClick={() =>
-              setActivePage("home")
-            }
-          >
-            <FaHome />
-            <span>Dashboard</span>
-          </li>
 
-          <li
-            className={
-              activePage === "expenses"
-                ? "active-menu"
-                : ""
-            }
-            onClick={() =>
-              setActivePage("expenses")
-            }
-          >
-            <FaWallet />
-            <span>Expenses</span>
-          </li>
+  <li
+    className={activePage === "home" ? "active-menu" : ""}
+    onClick={() => setActivePage("home")}
+  >
+    <FaHome />
+    <span>Dashboard</span>
+  </li>
 
-          <li
-            className={
-              activePage === "analytics"
-                ? "active-menu"
-                : ""
-            }
-            onClick={() =>
-              setActivePage("analytics")
-            }
-          >
-            <FaChartPie />
-            <span>Analytics</span>
-          </li>
+  <li
+    className={activePage === "expenses" ? "active-menu" : ""}
+    onClick={() => setActivePage("expenses")}
+  >
+    <FaWallet />
+    <span>Expenses</span>
+  </li>
 
-          <li
-            className={
-              activePage === "settings"
-                ? "active-menu"
-                : ""
-            }
-            onClick={() =>
-              setActivePage("settings")
-            }
-          >
-            <FaCog />
-            <span>Settings</span>
-          </li>
+  <li
+    className={activePage === "analytics" ? "active-menu" : ""}
+    onClick={() => setActivePage("analytics")}
+  >
+    <FaChartPie />
+    <span>Analytics</span>
+  </li>
 
-          <li
-  className="logout-btn"
-  onClick={() => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userName");
-    window.location.href = "/";
-  }}
->
-  <FaSignOutAlt />
-  <span>Logout</span>
-</li>
-        </ul>
-      </div>
+  <li
+    className={activePage === "settings" ? "active-menu" : ""}
+    onClick={() => setActivePage("settings")}
+  >
+    <FaCog />
+    <span>Settings</span>
+  </li>
+
+</ul>
+
+<div className="logout-container">
+
+  <div
+    className="logout-btn"
+    onClick={() => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userName");
+      window.location.href = "/";
+    }}
+  >
+    <FaSignOutAlt />
+    <span>Logout</span>
+  </div>
+
+</div>
 
       <div className="main-content">
 
