@@ -711,7 +711,7 @@ margin:25px;
 
 .logout-container{
 
-    margin-top:auto;
+    margin-top:30px;
 
     padding-top:24px;
 
@@ -720,6 +720,8 @@ margin:25px;
 }
 
 .logout-btn{
+   
+    height: 72px;
 
     display:flex;
 
@@ -729,7 +731,7 @@ margin:25px;
 
     padding:18px 20px;
 
-    border-radius:16px;
+    border-radius:22px;
 
     cursor:pointer;
 
@@ -745,7 +747,7 @@ margin:25px;
 
 .logout-btn:hover{
 
-    background:rgba(239,68,68,.18);
+    background:rgba(239,68,68,.15);
 
     color:#ffffff;
 
