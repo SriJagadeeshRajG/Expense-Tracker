@@ -10,13 +10,13 @@ router.get("/", authMiddleware, async (req, res) => {
   try {
 
     let budget = await Budget.findOne({
-      user: req.user,
+      user: req.user.id,
     });
 
     if (!budget) {
 
       budget = await Budget.create({
-        user: req.user,
+        user: req.user.id,
         amount: 5000,
       });
 
@@ -42,13 +42,13 @@ router.put("/", authMiddleware, async (req, res) => {
     const { amount } = req.body;
 
     let budget = await Budget.findOne({
-      user: req.user,
+      user: req.user.id,
     });
 
     if (!budget) {
 
       budget = await Budget.create({
-        user: req.user,
+        user: req.user.id,
         amount,
       });
 
