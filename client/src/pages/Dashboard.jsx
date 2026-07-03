@@ -122,7 +122,21 @@ useEffect(() => {
   return (
     <div className="app-layout">
       <div className="sidebar">
-        <h2>Expense Dashboard</h2>
+        <div className="sidebar-logo">
+
+  <div className="logo-icon">
+    💰
+  </div>
+
+  <div>
+
+    <h2>Expense Tracker</h2>
+
+    <p>Personal Finance</p>
+
+  </div>
+
+</div>
 
         <div className="user-profile">
           <div className="user-avatar">
@@ -135,9 +149,17 @@ useEffect(() => {
             {userName || "User"}
           </h3>
 
-          <p>
-            Welcome Back
-          </p>
+          <p className="user-role">
+  Expense Dashboard User
+</p>
+
+<div className="online-status">
+
+  <span className="online-dot"></span>
+
+  Online
+
+</div>
         </div>
 
         <ul>
@@ -152,7 +174,7 @@ useEffect(() => {
             }
           >
             <FaHome />
-            <span>Home</span>
+            <span>Dashboard</span>
           </li>
 
           <li
@@ -545,7 +567,7 @@ useEffect(() => {
 
         <div className="about-item">
 
-          <h3>Designed with ❤️</h3>
+          <h3>Designed For</h3>
 
           <p>
             For a better financial future.
