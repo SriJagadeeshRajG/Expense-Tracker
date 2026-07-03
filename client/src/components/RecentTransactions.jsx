@@ -87,26 +87,10 @@ function RecentTransactions({ refresh }) {
             <h3>{expense.title}</h3>
 
             <p>
-
-              <span className="category-badge">
-                {expense.category}
-
-              </span>
-
-              {" • "}
-
-              {new Date(
-                expense.date
-              ).toLocaleDateString(
-                "en-GB",
-                {
-                  day: "2-digit",
-                  month: "short",
-                  year: "numeric",
-                }
-              )}
-
-            </p>
+  <span className="category-badge">
+    {expense.category}
+  </span>
+</p>
 
           </div>
 

@@ -161,11 +161,11 @@
 
 .transaction-left h3{
 
-    font-size:20px;
+    font-size:24px;
 
     font-weight:700;
 
-    margin-bottom:4px;
+    margin-bottom:8px;
 
     overflow:hidden;
 
@@ -177,17 +177,7 @@
 
 .transaction-left p{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:6px;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
+    margin-top:4px;
 
 }
 
