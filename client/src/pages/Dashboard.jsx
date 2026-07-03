@@ -229,22 +229,7 @@ useEffect(() => {
 >
   <FaSignOutAlt />
   <span>Logout</span>
-</li><li
-            onClick={() => {
-              localStorage.removeItem(
-                "token"
-              );
-
-              localStorage.removeItem(
-                "userName"
-              );
-
-              window.location.href = "/";
-            }}
-          >
-            <FaSignOutAlt />
-            <span>Logout</span>
-          </li>
+</li>
         </ul>
       </div>
 
