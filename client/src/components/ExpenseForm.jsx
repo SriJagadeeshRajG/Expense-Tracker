@@ -28,7 +28,10 @@ function ExpenseForm({
   const categoryMap = {
     food: "Food",
     travel: "Travel",
-    drinks: "Drinks",
+    "tea / coffee": "Tea / Coffee",
+tea: "Tea / Coffee",
+coffee: "Tea / Coffee",
+drinks: "Tea / Coffee",
     "cool drinks": "Cool Drinks",
     bills: "Bills",
     snacks: "Snacks",
@@ -56,7 +59,7 @@ function ExpenseForm({
   const categoryOptions = [
     { value: "Food", label: "🍕 Food" },
     { value: "Travel", label: "🚌 Travel" },
-    { value: "Drinks", label: "🥤 Drinks" },
+    { value: "Tea / Coffee", label: "☕ Tea / Coffee" },
     { value: "Cool Drinks", label: "🥤 Cool Drinks" },
     { value: "Bills", label: "📱 Bills" },
     { value: "Snacks", label: "🍟 Snacks" },

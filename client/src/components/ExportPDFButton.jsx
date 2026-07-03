@@ -25,15 +25,15 @@ function ExportPDFButton() {
       ]);
 
       exportPDF(
-        expensesRes.data,
-        {
-          total: totalRes.data.total,
-          count: countRes.data.count,
-          highest: highestRes.data.highest
-        },
-        budgetRes.data.amount,
-        localStorage.getItem("userName")
-      );
+  expensesRes.data,
+  {
+    total: totalRes.data.total,
+    count: countRes.data.count,
+    highest: highestRes.data.highest
+  },
+  budgetRes.data.budget,
+  localStorage.getItem("userName")
+);
 
       toast.success(
         "PDF Downloaded Successfully"
@@ -41,13 +41,15 @@ function ExportPDFButton() {
 
     } catch (error) {
 
-      console.error(error);
+  console.error("PDF Export Error:", error);
 
-      toast.error(
-        "Unable to Export PDF"
-      );
+  if (error.response) {
+    console.log(error.response.data);
+  }
 
-    }
+  toast.error("Unable to Export PDF");
+
+}
 
   };
 

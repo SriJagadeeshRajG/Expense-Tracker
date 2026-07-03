@@ -32,7 +32,10 @@ const formatCategory = (text) => {
   const categoryMap = {
     food: "Food",
     travel: "Travel",
-    drinks: "Drinks",
+    "tea / coffee": "Tea / Coffee",
+tea: "Tea / Coffee",
+coffee: "Tea / Coffee",
+drinks: "Tea / Coffee",
     "cool drinks": "Cool Drinks",
     bills: "Bills",
     snacks: "Snacks",

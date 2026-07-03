@@ -48,63 +48,71 @@ function ExpenseTrendChart({
 
   const monthlyTotals = {};
 
-  expenses.forEach((expense) => {
-    const month = new Date(expense.date).toLocaleString("default", {
-  month: "short",
-  year: "2-digit",
+expenses.forEach((expense) => {
+  const date = new Date(expense.date);
+
+  const key = `${date.getFullYear()}-${date.getMonth()}`;
+
+  if (!monthlyTotals[key]) {
+    monthlyTotals[key] = {
+      total: 0,
+      label: date.toLocaleString("default", {
+        month: "short",
+        year: "2-digit",
+      }),
+    };
+  }
+
+  monthlyTotals[key].total += expense.amount;
 });
 
-    if (
-      monthlyTotals[month]
-    ) {
-      monthlyTotals[month] +=
-        expense.amount;
-    } else {
-      monthlyTotals[month] =
-        expense.amount;
-    }
-  });
+const sortedMonths = Object.keys(monthlyTotals).sort();
+
+const labels = sortedMonths.map(
+  (month) => monthlyTotals[month].label
+);
+
+const totals = sortedMonths.map(
+  (month) => monthlyTotals[month].total
+);
 
   const data = {
-    labels:
-      Object.keys(
-        monthlyTotals
-      ),
+  labels,
 
-    datasets: [
-  {
-    label: "Monthly Spending",
+  datasets: [
+    {
+      label: "Monthly Spending",
 
-    data: Object.values(monthlyTotals),
+      data: totals,
 
-    borderColor: "#38bdf8",
+      borderColor: "#38bdf8",
 
-    backgroundColor: "rgba(56,189,248,0.18)",
+      backgroundColor: "rgba(56,189,248,0.18)",
 
-    fill: true,
+      fill: true,
 
-    tension: 0.45,
+      tension: 0.45,
 
-    borderWidth: 4,
+      borderWidth: 4,
 
-    pointRadius: 6,
+      pointRadius: 6,
 
-    pointHoverRadius: 10,
+      pointHoverRadius: 10,
 
-    pointBackgroundColor: "#38bdf8",
+      pointBackgroundColor: "#38bdf8",
 
-    pointBorderColor: "#ffffff",
+      pointBorderColor: "#ffffff",
 
-    pointBorderWidth: 3,
+      pointBorderWidth: 3,
 
-    pointHoverBackgroundColor: "#ffffff",
+      pointHoverBackgroundColor: "#ffffff",
 
-    pointHoverBorderColor: "#38bdf8",
+      pointHoverBorderColor: "#38bdf8",
 
-    pointHoverBorderWidth: 3,
-  },
-],
-  };
+      pointHoverBorderWidth: 3,
+    },
+  ],
+};
 
   const textColor = getComputedStyle(document.body)
   .getPropertyValue("--text-primary")
