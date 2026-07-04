@@ -701,47 +701,37 @@ margin:25px;
 }
 .logout-container{
 
-    margin-top:auto;
+    margin-top:18px;
 
-    padding-top:20px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.logout-container{
-
-    margin-top:30px;
-
-    padding-top:24px;
+    padding-top:18px;
 
     border-top:1px solid rgba(255,255,255,.08);
 
 }
 
 .logout-btn{
-   
-    height: 72px;
 
     display:flex;
 
     align-items:center;
 
-    gap:16px;
+    gap:18px;
 
-    padding:18px 20px;
+    height:68px;
 
-    border-radius:22px;
+    padding:0 24px;
+
+    border-radius:20px;
 
     cursor:pointer;
 
-    color:#f87171;
+    color:#ff7b7b;
 
     font-size:18px;
 
     font-weight:600;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -751,6 +741,6 @@ margin:25px;
 
     color:#ffffff;
 
-    transform:translateX(8px);
+    transform:translateX(6px);
 
 }
