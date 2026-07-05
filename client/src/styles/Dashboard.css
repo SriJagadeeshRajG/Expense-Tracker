@@ -483,26 +483,35 @@ border:
 }
 
 /* ---------------- HOME LAYOUT ---------------- */
+.dashboard-overview{
+
+display:flex;
+
+flex-direction:column;
+
+gap:40px;
+
+margin-top:45px;
+
+margin-bottom:55px;
+
+}
 
 .dashboard-row{
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,minmax(0,1fr));
 
 gap:30px;
 
-margin-top:35px;
-
-align-items:start;
+align-items:stretch;
 
 }
 
 .dashboard-row>*{
 
-border-radius:22px;
-
-overflow:hidden;
+min-height:100%;
 
 }
 

@@ -304,18 +304,19 @@ useEffect(() => {
 
     {/* Summary */}
 
-    <Summary refresh={refresh} />
-    
+    <section className="dashboard-overview">
 
-    {/* Dashboard Grid */}
+  <Summary refresh={refresh} />
 
-    <div className="dashboard-row">
+  <div className="dashboard-row">
 
-      <BudgetCard refresh={refresh} />
+    <BudgetCard refresh={refresh} />
 
-      <RecentTransactions refresh={refresh} />
+    <RecentTransactions refresh={refresh} />
 
-    </div>
+  </div>
+
+</section>
 
     <div className="dashboard-row">
 
