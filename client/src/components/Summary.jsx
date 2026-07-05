@@ -41,8 +41,8 @@ function Summary({ refresh }) {
 
       <div className="summary-header">
 
-  <span className="summary-label">
-    📊 Dashboard Overview
+  <span className="summary-chip">
+    📊 Financial Dashboard
   </span>
 
   <h2 className="summary-title">
@@ -50,7 +50,7 @@ function Summary({ refresh }) {
   </h2>
 
   <p>
-    Keep track of your expenses, spending habits, and financial progress in one place.
+    Monitor your expenses, spending habits, and financial health in real time.
   </p>
 
 </div>
@@ -95,7 +95,7 @@ function Summary({ refresh }) {
           <div className="summary-footer">
 
     <span className="trend up">
-        ▲ Active
+        ● Active
     </span>
 
     <small>
