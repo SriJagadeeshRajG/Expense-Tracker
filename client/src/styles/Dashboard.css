@@ -258,29 +258,77 @@ color:var(--text-secondary);
 
 .welcome-card{
 
+position:relative;
+
 display:flex;
 
 justify-content:space-between;
 
 align-items:center;
 
-padding:28px 40px;
+padding:55px;
 
-margin-bottom:25px;
+margin-bottom:40px;
 
-border-radius:28px;
-
-background:linear-gradient(
-135deg,
-#7c3aed,
-#2563eb
-);
-
-box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
-
-color:white;
+border-radius:34px;
 
 overflow:hidden;
+
+background:
+linear-gradient(
+135deg,
+#5b21b6 0%,
+#2563eb 55%,
+#06b6d4 100%
+);
+
+box-shadow:
+0 30px 70px rgba(37,99,235,.35);
+
+isolation:isolate;
+
+}
+.welcome-card::before{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+
+height:420px;
+
+right:-160px;
+
+top:-160px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.08);
+
+filter:blur(10px);
+
+}
+
+.welcome-card::after{
+
+content:"";
+
+position:absolute;
+
+left:-120px;
+
+bottom:-120px;
+
+width:300px;
+
+height:300px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.06);
 
 }
 
@@ -294,11 +342,13 @@ padding-right:30px;
 
 .welcome-left h1{
 
-font-size:clamp(30px,5vw,42px);
+font-size:58px;
 
-line-height:1.25;
+font-weight:800;
 
-margin-bottom:12px;
+line-height:1.1;
+
+margin-bottom:18px;
 
 color:white;
 
@@ -308,15 +358,21 @@ color:white;
 
 color:#fde68a;
 
+display:block;
+
+margin-top:8px;
+
 }
 
 .welcome-left p{
 
-font-size:18px;
+max-width:580px;
 
-line-height:1.6;
+font-size:19px;
 
-color:rgba(255,255,255,.9);
+line-height:1.9;
+
+color:rgba(255,255,255,.92);
 
 }
 
@@ -332,34 +388,43 @@ align-items:center;
 
 .today-card{
 
-background:rgba(255,255,255,.08);
+background:
+rgba(255,255,255,.12);
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(24px);
 
-padding:28px;
+padding:34px;
 
-border-radius:24px;
+border-radius:28px;
 
-border:1px solid rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.18);
 
-min-width:290px;
-
-text-align:left;
+min-width:330px;
 
 box-shadow:
-0 12px 40px rgba(15,23,42,.25);
+
+0 18px 40px rgba(0,0,0,.22);
+
+transition:.35s;
 
 }
+.today-card:hover{
+
+transform:
+
+translateY(-6px);
+
+}  
 
 .today-card h1{
 
-font-size:42px;
-
-margin:12px 0;
-
-color:white;
+font-size:54px;
 
 font-weight:800;
+
+margin:18px 0;
+
+letter-spacing:-2px;
 
 }
 
@@ -397,19 +462,23 @@ background:rgba(255,255,255,.15);
 
 .hero-note{
 
-margin-top:18px;
+margin-top:22px;
 
-padding:14px;
+padding:18px;
 
-border-radius:14px;
+border-radius:18px;
 
-background:rgba(255,255,255,.08);
+background:
 
-font-size:14px;
+rgba(255,255,255,.10);
 
-line-height:1.6;
+font-size:15px;
 
-color:white;
+line-height:1.8;
+
+border:
+
+1px solid rgba(255,255,255,.08);
 
 }
 
@@ -421,9 +490,9 @@ display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:25px;
+gap:30px;
 
-margin-top:25px;
+margin-top:35px;
 
 align-items:start;
 
@@ -439,27 +508,45 @@ overflow:hidden;
 
 /* ---------------- RESPONSIVE ---------------- */
 
-@media(max-width:1100px){
+@media(max-width:900px){
 
 .welcome-card{
 
+padding:28px;
+
 flex-direction:column;
 
-text-align:center;
+gap:30px;
 
-gap:25px;
+text-align:center;
 
 }
 
 .welcome-left{
 
-padding-right:0;
+padding:0;
+
+}
+
+.welcome-left h1{
+
+font-size:38px;
+
+}
+
+.today-card{
+
+width:100%;
+
+min-width:unset;
 
 }
 
 .dashboard-row{
 
 grid-template-columns:1fr;
+
+gap:24px;
 
 }
 

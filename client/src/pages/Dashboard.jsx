@@ -9,7 +9,6 @@ import "../styles/App.css";
 import ExpenseTrendChart from "../components/ExpenseTrendChart";
 import BudgetCard from "../components/BudgetCard";
 import { motion } from "framer-motion";
-import QuickStats from "../components/QuickStats";
 import InsightsCard from "../components/InsightsCard";
 import MonthlyComparison from "../components/MonthlyComparison";
 import { updateUsername } from "../services/authApi";
@@ -301,7 +300,7 @@ useEffect(() => {
 
     {/* Quick Stats */}
 
-    <QuickStats refresh={refresh} />
+    
 
     {/* Summary */}
 
