@@ -40,14 +40,20 @@ function Summary({ refresh }) {
     <div className="summary-section">
 
       <div className="summary-header">
-        <h2 className="summary-title">
-          Financial Summary
-        </h2>
 
-        <p>
-          Overview of your current spending
-        </p>
-      </div>
+  <span className="summary-label">
+    📊 Dashboard Overview
+  </span>
+
+  <h2 className="summary-title">
+    Financial Summary
+  </h2>
+
+  <p>
+    Keep track of your expenses, spending habits, and financial progress in one place.
+  </p>
+
+</div>
 
       <div className="summary-container">
 
@@ -86,9 +92,17 @@ function Summary({ refresh }) {
             )}
           </h1>
 
-          <small>
-            Money spent so far
-          </small>
+          <div className="summary-footer">
+
+    <span className="trend up">
+        ▲ Active
+    </span>
+
+    <small>
+        Updated Today
+    </small>
+
+</div>
 
         </motion.div>
 
@@ -125,9 +139,17 @@ function Summary({ refresh }) {
             )}
           </h1>
 
-          <small>
-            Expenses recorded
-          </small>
+          <div className="summary-footer">
+
+    <span className="trend neutral">
+        📝 Transactions
+    </span>
+
+    <small>
+        This Month
+    </small>
+
+</div>
 
         </motion.div>
 
@@ -166,9 +188,17 @@ function Summary({ refresh }) {
             )}
           </h1>
 
-          <small>
-            Biggest single expense
-          </small>
+          <div className="summary-footer">
+
+    <span className="trend danger">
+        🔥 Highest
+    </span>
+
+    <small>
+        Biggest Purchase
+    </small>
+
+</div>
 
         </motion.div>
 

@@ -101,9 +101,17 @@ function BudgetCard({ refresh }) {
         <>
           <div className="budget-amount">
 
-  <span>Budget</span>
+  <span className="budget-label">
+    Available Budget
+  </span>
 
-  <h1>₹{budget}</h1>
+  <h1>
+    ₹{budget.toLocaleString()}
+  </h1>
+
+  <small>
+    Monthly Spending Limit
+  </small>
 
 </div>
 
@@ -143,19 +151,23 @@ function BudgetCard({ refresh }) {
 
   <div>
 
-    <span>Spent</span>
+  <span>💸 Spent</span>
 
-    <h3>₹{total}</h3>
+  <h3>
+    ₹{total.toLocaleString()}
+  </h3>
 
-  </div>
+</div>
 
-  <div>
+<div>
 
-    <span>Remaining</span>
+  <span>💎 Remaining</span>
 
-    <h3>₹{remaining}</h3>
+  <h3>
+    ₹{remaining.toLocaleString()}
+  </h3>
 
-  </div>
+</div>
 
 </div>
 
@@ -174,7 +186,7 @@ function BudgetCard({ refresh }) {
 
   {percentage < 60 && (
     <>
-      <h4>🟢 Great!</h4>
+      <h4>✅ Excellent Budget Control</h4>
       <p>
         You still have ₹{remaining} remaining this month.
       </p>
@@ -183,7 +195,7 @@ function BudgetCard({ refresh }) {
 
   {percentage >= 60 && percentage < 90 && (
     <>
-      <h4>🟡 Warning!</h4>
+      <h4>⚠ Budget Near Limit</h4>
       <p>
         You've used {Math.round(percentage)}% of your budget.
       </p>
@@ -192,7 +204,7 @@ function BudgetCard({ refresh }) {
 
   {percentage >= 90 && (
     <>
-      <h4>🔴 Budget Exceeded!</h4>
+      <h4>🚨 Budget Limit Reached</h4>
       <p>
         You're close to or over your monthly budget.
       </p>
@@ -208,7 +220,7 @@ function BudgetCard({ refresh }) {
   }}
 >
   <FaWallet />
-  <span>Set Monthly Budget</span>
+  <span>Update Monthly Budget</span>
 </button>
     </div>
   );

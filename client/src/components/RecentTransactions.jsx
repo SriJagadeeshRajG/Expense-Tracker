@@ -67,8 +67,12 @@ function RecentTransactions({ refresh }) {
   <div className="recent-card">
 
     <div className="recent-header">
-      <h2>🕒 Recent Transactions</h2>
-      <span>{expenses.length} Recent</span>
+      <h2>💳 Recent Transactions</h2>
+      <span>
+
+{expenses.length} Transactions
+
+</span>
     </div>
 
     {expenses.map((expense) => (
@@ -78,7 +82,13 @@ function RecentTransactions({ refresh }) {
       >
         <div className="transaction-left">
 
-          <div className="transaction-icon">
+          <div
+  className="transaction-icon"
+  style={{
+    background:
+      getCategoryData(expense.category).color,
+  }}
+>
             {getCategoryData(expense.category).icon}
           </div>
 
