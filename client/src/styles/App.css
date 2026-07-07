@@ -37,17 +37,22 @@ body{
 .app-layout{
 
     display:flex;
+
+    width:100%;
+
     min-height:100vh;
 
 }
 
 .main-content{
 
-    margin-left:280px;
+    flex:1;
 
-    width:calc(100% - 280px);
+    margin-left:300px;
 
-    padding:35px;
+    padding:40px;
+
+    min-width:0;
 
 }
 

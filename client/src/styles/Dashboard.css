@@ -503,9 +503,18 @@ display:grid;
 
 grid-template-columns:repeat(2,minmax(0,1fr));
 
-gap:30px;
+gap:28px;
 
-align-items:stretch;
+align-items:start;
+
+width:100%;
+
+}
+.dashboard-overview{
+
+width:100%;
+
+margin-top:35px;
 
 }
 
@@ -838,5 +847,23 @@ margin:25px;
     color:#ffffff;
 
     transform:translateX(6px);
+
+}
+.welcome-card{
+
+    width:100%;
+
+}
+.charts-container{
+
+display:grid;
+
+grid-template-columns:repeat(2,minmax(0,1fr));
+
+gap:28px;
+
+width:100%;
+
+margin-top:35px;
 
 }
