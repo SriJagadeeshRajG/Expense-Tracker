@@ -99,19 +99,23 @@ function BudgetCard({ refresh }) {
 
       {!editing ? (
         <>
-          <div className="budget-amount">
+          <div className="budget-amount-card">
 
-  <span className="budget-label">
-    Available Budget
-  </span>
+  <div className="budget-amount">
 
-  <h1>
-    ₹{budget.toLocaleString()}
-  </h1>
+    <span className="budget-label">
+      Available Budget
+    </span>
 
-  <small>
-    Monthly Spending Limit
-  </small>
+    <h1>
+      ₹{budget.toLocaleString()}
+    </h1>
+
+    <small>
+      Monthly Spending Limit
+    </small>
+
+  </div>
 
 </div>
 
@@ -171,14 +175,38 @@ function BudgetCard({ refresh }) {
 
 </div>
 
-      <div className="budget-progress">
+      <div className="budget-progress-section">
 
-  <div
-    className="budget-fill"
-    style={{
-      width: `${Math.min(percentage,100)}%`,
-    }}
-  />
+  <div className="progress-labels">
+
+    <span>
+      ₹{total.toLocaleString()} Spent
+    </span>
+
+    <span>
+      {Math.round(percentage)}% Used
+    </span>
+
+  </div>
+
+  <div className="budget-progress">
+
+    <div
+      className="budget-fill"
+      style={{
+        width: `${Math.min(percentage,100)}%`,
+      }}
+    />
+
+  </div>
+
+  <div className="progress-bottom">
+
+    <span>
+      ₹{remaining.toLocaleString()} Remaining
+    </span>
+
+  </div>
 
 </div>
 
@@ -186,7 +214,15 @@ function BudgetCard({ refresh }) {
 
   {percentage < 60 && (
     <>
-      <h4>✅ Excellent Budget Control</h4>
+      <h4>
+
+<span className="alert-icon">
+✅
+</span>
+
+Excellent Budget Control
+
+</h4>
       <p>
         You still have ₹{remaining} remaining this month.
       </p>
@@ -212,16 +248,27 @@ function BudgetCard({ refresh }) {
   )}
 
 </div>
+<div className="budget-button-area">
+
 <button
   className="budget-btn"
-  onClick={() => {
+  onClick={()=>{
     setEditing(true);
     setNewBudget(budget);
   }}
 >
-  <FaWallet />
-  <span>Update Monthly Budget</span>
+
+<FaWallet />
+
+<span>
+
+Update Monthly Budget
+
+</span>
+
 </button>
+
+</div>
     </div>
   );
 }
