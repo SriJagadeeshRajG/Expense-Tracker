@@ -67,53 +67,81 @@ function RecentTransactions({ refresh }) {
   <div className="recent-card">
 
     <div className="recent-header">
-      <h2>💳 Recent Transactions</h2>
-      <span>
 
-{expenses.length} Transactions
+      <div>
+        <h2>💳 Recent Transactions</h2>
+        <p>Your latest expenses</p>
+      </div>
 
-</span>
+      <div className="transaction-count">
+        <span>{expenses.length}</span>
+        <small>Transactions</small>
+      </div>
+
     </div>
 
-    {expenses.map((expense) => (
-      <div
-        key={expense._id}
-        className="transaction-item"
-      >
-        <div className="transaction-left">
+    <div className="transaction-list">
 
-          <div
-  className="transaction-icon"
-  style={{
-    background:
-      getCategoryData(expense.category).color,
-  }}
->
-            {getCategoryData(expense.category).icon}
+      {expenses.map((expense) => (
+
+        <div
+          key={expense._id}
+          className="transaction-item"
+        >
+
+          <div className="transaction-left">
+
+            <div
+              className="transaction-icon"
+              style={{
+                background:
+                  getCategoryData(expense.category).color,
+              }}
+            >
+              {getCategoryData(expense.category).icon}
+            </div>
+
+            <div className="transaction-info">
+
+              <h3>{expense.title}</h3>
+
+              <div className="transaction-meta">
+
+                <span className="category-badge">
+                  {expense.category}
+                </span>
+
+                <span className="transaction-date">
+                  Today
+                </span>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <div>
+          <div className="transaction-right">
 
-            <h3>{expense.title}</h3>
+            <div className="transaction-amount">
+              ₹{expense.amount}
+            </div>
 
-            <p>
-  <span className="category-badge">
-    {expense.category}
-  </span>
-</p>
+            <div className="transaction-arrow">
+              ›
+            </div>
 
           </div>
 
         </div>
 
-        <div className="transaction-amount">
+      ))}
 
-          ₹{expense.amount}
+    </div>
 
-        </div>
-
-      </div>
-    ))}
+    <button className="view-all-btn">
+      📋 View All Transactions
+    </button>
 
   </div>
 );
