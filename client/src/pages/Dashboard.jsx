@@ -312,7 +312,10 @@ useEffect(() => {
 
     <BudgetCard refresh={refresh} />
 
-    <RecentTransactions refresh={refresh} />
+    <RecentTransactions
+    refresh={refresh}
+    onViewAll={() => setActivePage("expenses")}
+/>
 
   </div>
 

@@ -41,7 +41,10 @@ function getCategoryData(category) {
   };
 }
 
-function RecentTransactions({ refresh }) {
+function RecentTransactions({
+    refresh,
+    onViewAll,
+}) {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
@@ -139,9 +142,12 @@ function RecentTransactions({ refresh }) {
 
     </div>
 
-    <button className="view-all-btn">
-      📋 View All Transactions
-    </button>
+    <button
+    className="view-all-btn"
+    onClick={onViewAll}
+>
+    📋 View All Transactions
+</button>
 
   </div>
 );
