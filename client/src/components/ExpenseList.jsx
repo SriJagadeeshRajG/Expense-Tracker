@@ -366,6 +366,7 @@ const totalPages = Math.ceil(
     isSearchable={false}
     menuPortalTarget={document.body}
     menuPosition="absolute"
+    menuPlacement="top"
   />
 
   <Select

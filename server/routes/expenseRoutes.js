@@ -130,25 +130,44 @@ router.put(
   authMiddleware,
   async (req, res) => {
     try {
+
+      console.log("Updating:", req.params.id);
+      console.log("User:", req.user.id);
+      console.log("Body:", req.body);
+
       const updatedExpense =
         await Expense.findOneAndUpdate(
           {
             _id: req.params.id,
-            user: req.user
+            user: req.user.id
           },
           {
-  ...req.body,
-  category: formatCategory(req.body.category),
-},
-          { new: true }
+            title: req.body.title,
+            amount: Number(req.body.amount),
+            category: formatCategory(req.body.category),
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
+
+      if (!updatedExpense) {
+        return res.status(404).json({
+          message: "Expense not found",
+        });
+      }
 
       res.json(updatedExpense);
 
     } catch (error) {
+
+      console.error("UPDATE ERROR:", error);
+
       res.status(500).json({
-        message: error.message
+        message: error.message,
       });
+
     }
   }
 );
